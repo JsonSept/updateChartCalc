@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Energy Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="calculator">
+      <h2>Energy Calculator</h2>
+      <form id="energy-form">
+        <label for="voltage">Voltage (V):</label>
+            <select name="voltage" required>
+                <option value="12">12V DC</option>
+                <option value="24">24V DC</option>
+                <option value="48">48V DC</option>
+                <option value="96">96V DC</option>
+                <option value="200">200V DC</option>
+                <option value="400">400V DC</option>
+                <option value="600">600V DC</option>
+            </select>
+
+    <label for="current">Current (A):</label>
+        <select name="current" required>
+            <option value="5">5A</option>
+            <option value="10">10A</option>
+            <option value="15">15A</option>
+            <option value="20">20A</option>
+            <option value="25">25A</option>
+            <option value="30">30A</option>
+            <option value="40">40A</option>
+            <option value="50">50A</option>
+        </select>
+
+    <label for="power">Power (W):</label>
+        <select name="power" required>
+            <option value="1000">1 kW</option>
+            <option value="2000">2 kW</option>
+            <option value="3000">3 kW</option>
+            <option value="5000">5 kW</option>
+            <option value="10000">10 kW</option>
+            <option value="15000">15 kW</option>
+            <option value="20000">20 kW</option>
+            <option value="30000">30 kW</option>
+            <option value="50000">50 kW</option>
+        </select>
+
+
+    
+        <label for="panel_area">Panel Area (m²):</label>
+        <select name="panel_area" required>
+            <option value="1">1 m²</option>
+            <option value="2">2 m²</option>
+            <option value="3">3 m²</option>
+            <option value="5">5 m²</option>
+            <option value="10">10 m²</option>
+            <option value="20">20 m²</option>
+            <option value="30">30 m²</option>
+            <option value="50">50 m²</option>
+            <option value="100">100 m²</option>
+        </select>
+
+    <label for="efficiency">Efficiency (%):</label>
+        <select name="efficiency" required>
+            <option value="15">15%</option>
+            <option value="16">16%</option>
+            <option value="17">17%</option>
+            <option value="18">18%</option>
+            <option value="19">19%</option>
+            <option value="20">20%</option>
+            <option value="21">21%</option>
+            <option value="22">22%</option>
+        </select>
+        
+        <label for="currency_rate">Currency Rate (per kWh):</label>
+        <input type="number" step="0.01" name="currency_rate" required>
+
+        <label for="num_panels">Number of Panels:</label>
+        <input type="number" step="1" name="num_panels" required>
+
+        <label for="solar_irradiance">Solar Irradiance (W/m²):</label>
+        <input type="number" step="0.01" name="solar_irradiance" required>
+
+        <button type="button" onclick="fetchData()">Fetch Data</button>
+      </form>
+    </div>
+    <br>
+    <div class="charts">
+      <div>
+        <h3>Production</h3>
+        <canvas id="productionChart"></canvas>
+      </div><br>
+      <div>
+        <h3>Cost</h3>
+        <canvas id="costChart"></canvas>
+      </div>
+      <div>
+        <h3>Usage Estimate</h3>
+        <canvas id="usageChart"></canvas>
+      </div>
+
+  </div>
+    
+      
+    </div>
+    
+  
+  <!-- <div>
+    <canvas id="energyChart" width="100" height="50"></canvas>
+  </div> -->
+  <div id="results">
+    <p id="outputWattsText"></p>
+    <p id="outputKWhText"></p>
+    <p id="totalCostText"></p>
+    <p id="energyExportedText">Energy Exported to Grid (kWh): </p>
+    <p id="localConsumptionText">Local Consumption (kWh): </p>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
