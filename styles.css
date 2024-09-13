@@ -11,13 +11,16 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 20px;
+    padding: 3%;
+    padding-right: 5%;
   }
   
   .calculator {
     background-color: #3e3e3e;
     padding: 20px;
     border-radius: 10px;
+    padding-top: 1px;
+    
   }
   
   .calculator h2 {
@@ -81,6 +84,8 @@ body {
     width: 100%;
     max-width: 1000px;
     margin: 20px auto;
+    margin-top:-200px; 
+    z-index: 2;
   }
   
   #results p {
